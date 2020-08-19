@@ -21,6 +21,7 @@ def main():
     vonatok = list()
     for i in sr.read().splitlines():
         akt_vonat = Vonat(i)
+        # várakozási idő [min] meghatározása indulásoknál:
         if akt_vonat.status == 'I' and akt_vonat.allomas != 0: # Ha nem az első állomásról indul
             elozo_adatok = list(filter(lambda x: x.azon == akt_vonat.azon, vonatok))
             akt_vonat.varakozas =  eltelt_ido_min(elozo_adatok[-1], akt_vonat)
