@@ -66,11 +66,11 @@ def main():
     for i in vonatok_h:
         av = list(filter(lambda x: x.azon == i, vonatok)) # aktuális vonat
         for j in range(1, len(av)):
-            if av[j - 1].status == 'I': # j - 1 indulási idő, j a következő érkezés ideje
+            if av[j - 1].status == 'I': # j - 1 indulási időt, j a következő érkezés idejét indexeli
                 if av[j - 1].ido <= ido < av[j].ido:
                     print(f'A(z) {av[j].azon}. vonat a {av[j-1].allomas}. és a {av[j].allomas}. állomás között járt.')
             else:
-                if av[j - 1].ido <= ido < av[j].ido: # j - 1 érkezési idő, j a következő indulás ideje
+                if av[j - 1].ido <= ido < av[j].ido: # j - 1 érkezési időt, j a következő indulás idejét indexeli
                     print(f'A(z) {av[j].azon}. vonat a {av[j].allomas}. állomáson állt.')
 
 
